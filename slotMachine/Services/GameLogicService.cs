@@ -1,4 +1,4 @@
-﻿using slotMachine.Entities;
+using slotMachine.Entities;
 using slotMachine.Interfaces;
 
 namespace slotMachine.Services
@@ -32,7 +32,7 @@ namespace slotMachine.Services
         /// <param name="stake">The amount of money bet by the player.</param>
         /// <param name="reels">The reels symbols result in the bet.</param>
         /// <returns>The prize amount won by the player.</returns>
-        public decimal CheckWinAndCalculatePrice(decimal stake, Symbol[][] reels)
+        public decimal CheckWinAndCalculatePrize(decimal stake, Symbol[][] reels)
         {
             decimal prize = 0;
             foreach (var reel in reels)
