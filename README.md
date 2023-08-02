@@ -43,4 +43,5 @@ Just Ctrl+F5 to build and execute the game.
 ### Author
 
 Jorge Rubio Díez
-jrubiod90@gmail.com
+
+Email: jrubiod90@gmail.com
