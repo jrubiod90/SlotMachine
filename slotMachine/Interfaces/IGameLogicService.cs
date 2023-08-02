@@ -1,4 +1,4 @@
-﻿using slotMachine.Entities;
+using slotMachine.Entities;
 
 namespace slotMachine.Interfaces
 {
@@ -13,7 +13,7 @@ namespace slotMachine.Interfaces
         /// <param name="stake">The amount of money bet by the player.</param>
         /// <param name="reels">The reels symbols result in the bet.</param>
         /// <returns>The prize amount won by the player.</returns>
-        public decimal CheckWinAndCalculatePrice(decimal stake, Symbol[][] reels);
+        public decimal CheckWinAndCalculatePrize(decimal stake, Symbol[][] reels);
         /// <summary>
         /// Calculate the sum coefficent to multiplicate the bet of the symbols results in a reel.
         /// </summary>
