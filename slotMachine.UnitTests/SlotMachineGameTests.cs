@@ -1,4 +1,4 @@
-﻿using slotMachine.Entities;
+using slotMachine.Entities;
 using slotMachine.Interfaces;
 using slotMachine.Services;
 
@@ -35,7 +35,7 @@ namespace slotMachine.UnitTests
             mockDisplayService.Setup(d => d.WinMessage(testPrize));
             mockDisplayService.Setup(d => d.ActualBalanceMessage(testBalance - testStake - testPrize));
 
-            mockGameLogic.Setup(gl => gl.CheckWinAndCalculatePrice(testStake, It.IsAny<Symbol[][]>())).Returns(testPrize);
+            mockGameLogic.Setup(gl => gl.CheckWinAndCalculatePrize(testStake, It.IsAny<Symbol[][]>())).Returns(testPrize);
 
             mockMonetaryService.SetupSequence(ms => ms.GetActualBalance())
                 .Returns(testBalance)
