@@ -15,7 +15,7 @@ namespace slotMachine.UnitTests
         };
 
         [Fact]
-        public void CheckWinAndCalculatePrice_ShouldCalculateCorrectPrize()
+        public void CheckWinAndCalculatePrize_ShouldCalculateCorrectPrize()
         {
             // Arrange
             var mockSymbolsService = new Mock<ISymbolsService>();
