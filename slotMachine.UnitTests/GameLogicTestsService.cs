@@ -35,7 +35,7 @@ namespace slotMachine.UnitTests
             mockMonetaryService.Setup(input => input.CalculatePrize(1.2m, 5)).Returns(100);
 
             // Act
-            decimal prize = gameLogicService.CheckWinAndCalculatePrice(5, reels);
+            decimal prize = gameLogicService.CheckWinAndCalculatePrize(5, reels);
 
             // Assert
             Assert.Equal(400, prize);
