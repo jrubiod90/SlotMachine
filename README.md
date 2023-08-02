@@ -1,7 +1,7 @@
 # Slot Machine 
 
 This is a .NET console application for a simple slot machine game. The slot machine has configurable symbols with 
-probability of appearance and win coefficient for each symbol, and it allows players to play by betting money and spinning the reels. This symbols are configurables in appsettings.json file with the following way:
+probability of appearance and win coefficient for each symbol, and it allows players to play by betting money and spinning the reels. This symbols are configurables in appsettings.json file with the following way:\n\n
 {
   "SlotMachineSettings": {
     "Symbols": [
@@ -38,3 +38,8 @@ Just Ctrl+F5 to build and execute the game.
 ### Prerequisites
 
 - .NET SDK (Version 7.0) [Download .NET](https://dotnet.microsoft.com/download)
+
+### Author
+
+Jorge Rubio Díez
+jrubiod90@gmail.com
