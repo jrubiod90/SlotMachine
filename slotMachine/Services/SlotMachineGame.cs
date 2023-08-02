@@ -1,4 +1,4 @@
-﻿using slotMachine.Entities;
+using slotMachine.Entities;
 using slotMachine.Interfaces;
 
 namespace slotMachine.Services
@@ -34,29 +34,69 @@ namespace slotMachine.Services
         /// </summary>
         public void StartGame()
         {
+            WelcomeGame();
+            while (monetaryService.GetActualBalance() > 0)
+            {
+                Game();
+            }
+            EndGame();
+        }
+
+        /// <summary>
+        /// Display welcome message and get balance.
+        /// </summary>
+        private void WelcomeGame()
+        {
             displayService.WelcomeMessage();
             decimal balance = inputService.ReadBalance();
 
             monetaryService.AddAmountToBalance(balance);
-            while (monetaryService.GetActualBalance() > 0)
+        }
+
+        /// <summary>
+        /// Principal game logic.
+        /// </summary>
+        private void Game()
+        {
+            decimal stake = inputService.ReadStake();
+            if (monetaryService.GetActualBalance() - stake >= 0)
             {
-                ;
-                decimal stake = inputService.ReadStake();
-                if (monetaryService.GetActualBalance() - stake >= 0)
-                {
-                    monetaryService.AddAmountToBalance(-stake);
-                    reels = gameLogic.SpinReels();
-                    displayService.DisplayReels(reels);
-                    var prize = gameLogic.CheckWinAndCalculatePrice(stake, reels);
-                    monetaryService.AddAmountToBalance(prize);
-                    displayService.WinMessage(prize);
-                    displayService.ActualBalanceMessage(monetaryService.GetActualBalance());
-                }
-                else
-                {
-                    displayService.NoFundsMessage();
-                }
+                monetaryService.AddAmountToBalance(-stake);
+                SpinReels();
+                CalculatePrize(stake);
             }
+            else
+            {
+                displayService.NoFundsMessage();
+            }
+        }
+
+        /// <summary>
+        /// Spin reels of slot machine.
+        /// </summary>
+        private void SpinReels()
+        {
+            reels = gameLogic.SpinReels();
+            displayService.DisplayReels(reels);
+        }
+
+        /// <summary>
+        /// Calculate prize logic
+        /// </summary>
+        /// <param name="stake">Stake introduced by user.</param>
+        private void CalculatePrize(decimal stake)
+        {
+            var prize = gameLogic.CheckWinAndCalculatePrize(stake, reels);
+            monetaryService.AddAmountToBalance(prize);
+            displayService.WinMessage(prize);
+            displayService.ActualBalanceMessage(monetaryService.GetActualBalance());
+        }
+
+        /// <summary>
+        /// Prints game over message.
+        /// </summary>
+        private void EndGame()
+        {
             displayService.GameOverMessage();
         }
     }
