@@ -40,7 +40,7 @@ Just Ctrl+F5 to build and execute the game.
 
 - .NET SDK (Version 7.0) [Download .NET](https://dotnet.microsoft.com/download)
 
-### Author
+## Author
 
 Jorge Rubio Díez
 
